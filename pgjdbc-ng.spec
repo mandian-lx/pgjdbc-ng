@@ -16,6 +16,7 @@ BuildRequires:	mvn(io.netty:netty-buffer)
 BuildRequires:	mvn(io.netty:netty-codec)
 BuildRequires:	mvn(io.netty:netty-handler)
 BuildRequires:	mvn(io.netty:netty-transport)
+BuildRequires:	mvn(org.apache.maven.plugins:maven-checkstyle-plugin)
 # The following is required for tests only
 BuildRequires:	mvn(junit:junit)
 
