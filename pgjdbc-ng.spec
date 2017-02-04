@@ -11,11 +11,11 @@ BuildArch:	noarch
 BuildRequires:	jpackage-utils
 BuildRequires:	java-headless
 BuildRequires:	maven-local
-BuildRequires:	mvn(io.netty:netty-common)
-BuildRequires:	mvn(io.netty:netty-buffer)
-BuildRequires:	mvn(io.netty:netty-codec)
-BuildRequires:	mvn(io.netty:netty-handler)
-BuildRequires:	mvn(io.netty:netty-transport)
+BuildRequires:	netty #mvn(io.netty:netty-common)
+BuildRequires:	netty #mvn(io.netty:netty-buffer)
+BuildRequires:	netty #mvn(io.netty:netty-codec)
+BuildRequires:	netty #mvn(io.netty:netty-handler)
+BuildRequires:	netty #mvn(io.netty:netty-transport)
 BuildRequires:	mvn(org.apache.maven.plugins:maven-checkstyle-plugin)
 BuildRequires:	mvn(org.apache.maven.plugins:maven-shade-plugin)
 # The following is required for tests only
