@@ -1,3 +1,5 @@
+%{?_javapackages_macros:%_javapackages_macros}
+
 Summary:	A JDBC driver for PostgreSQL
 Name:		pgjdbc-ng
 Version:	0.6
@@ -8,21 +10,17 @@ URL:		https://github.com/impossibl/%{name}
 Source0:	https://github.com/impossibl/%{name}/archive/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 
-BuildRequires:	jpackage-utils
-BuildRequires:	java-headless
 BuildRequires:	maven-local
-BuildRequires:	netty #mvn(io.netty:netty-common)
-BuildRequires:	netty #mvn(io.netty:netty-buffer)
-BuildRequires:	netty #mvn(io.netty:netty-codec)
-BuildRequires:	netty #mvn(io.netty:netty-handler)
-BuildRequires:	netty #mvn(io.netty:netty-transport)
+BuildRequires:	mvn(io.netty:netty-common)
+BuildRequires:	mvn(io.netty:netty-buffer)
+BuildRequires:	mvn(io.netty:netty-codec)
+BuildRequires:	mvn(io.netty:netty-handler)
+BuildRequires:	mvn(io.netty:netty-transport)
 BuildRequires:	mvn(org.apache.maven.plugins:maven-checkstyle-plugin)
 BuildRequires:	mvn(org.apache.maven.plugins:maven-shade-plugin)
 # The following is required for tests only
 BuildRequires:	mvn(junit:junit)
 
-Requires:	java-headless
-Requires:	jpackage-utils
 
 %description
 A new JDBC driver for PostgreSQL aimed at supporting the advanced features of
