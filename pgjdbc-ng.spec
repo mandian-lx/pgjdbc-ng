@@ -1,4 +1,4 @@
-%{?_javapackages_macros:%_javapackages_macros}
+/home/user/Scaricati/chroot/chroot-omv-cooker.64/home/user.cooker.64/rpmbuild/SPECS/zrtp4j-light.spec
 
 Summary:	A JDBC driver for PostgreSQL
 Name:		pgjdbc-ng
@@ -60,6 +60,9 @@ API documentation for %{name}.
 # Delete prebuild binaries
 find . -name "*.jar" -delete
 find . -name "*.class" -delete
+
+# Fix dependency artifactId
+sed -i -e "s|netty-all|netty|g" pom.xml
 
 # Remove unuseful plugins
 %pom_remove_plugin :maven-checkstyle-plugin
