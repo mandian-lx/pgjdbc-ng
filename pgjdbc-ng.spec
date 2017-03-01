@@ -62,6 +62,7 @@ find . -name "*.jar" -delete
 find . -name "*.class" -delete
 
 # Remove unuseful plugins
+%pom_remove_plugin :maven-checkstyle-plugin
 %pom_remove_plugin :maven-shade-plugin
 %pom_remove_plugin :maven-source-plugin
 
