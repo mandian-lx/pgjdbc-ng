@@ -10,17 +10,12 @@ URL:		https://github.com/impossibl/%{name}
 Source0:	https://github.com/impossibl/%{name}/archive/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 
-BuildRequires:	maven-local
-BuildRequires:	mvn(io.netty:netty-common)
-BuildRequires:	mvn(io.netty:netty-buffer)
-BuildRequires:	mvn(io.netty:netty-codec)
-BuildRequires:	mvn(io.netty:netty-handler)
-BuildRequires:	mvn(io.netty:netty-transport)
-BuildRequires:	mvn(org.apache.maven.plugins:maven-checkstyle-plugin)
-BuildRequires:	mvn(org.apache.maven.plugins:maven-shade-plugin)
-# The following is required for tests only
-BuildRequires:	mvn(junit:junit)
-
+BuildRequires:  maven-local
+BuildRequires:  mvn(io.netty:netty-all)
+BuildRequires:  mvn(junit:junit)
+BuildRequires:  mvn(org.apache.felix:maven-bundle-plugin)
+BuildRequires:  mvn(org.codehaus.mojo:build-helper-maven-plugin)
+BuildRequires:  mvn(org.sonatype.oss:oss-parent:pom:)
 
 %description
 A new JDBC driver for PostgreSQL aimed at supporting the advanced features of
@@ -43,7 +38,7 @@ Features:
  *  DataSource / XADataSource
 
 %files -f .mfiles
-%doc license.txt
+%doc LICENSE
 
 #----------------------------------------------------------------------------
 
@@ -54,7 +49,8 @@ Summary:	Javadoc for %{name}
 API documentation for %{name}.
 
 %files javadoc -f .mfiles-javadoc
-%doc license.txt
+%doc README.md
+%doc LICENSE
 
 #----------------------------------------------------------------------------
 
@@ -64,6 +60,10 @@ API documentation for %{name}.
 # Delete prebuild binaries
 find . -name "*.jar" -delete
 find . -name "*.class" -delete
+
+# Remove unuseful plugins
+%pom_remove_plugin :maven-shade-plugin
+%pom_remove_plugin :maven-source-plugin
 
 # Fix Jar name
 %mvn_file :%{name} %{name}-%{version} %{name}
