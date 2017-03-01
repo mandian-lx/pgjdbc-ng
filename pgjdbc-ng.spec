@@ -11,7 +11,7 @@ Source0:	https://github.com/impossibl/%{name}/archive/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 
 BuildRequires:  maven-local
-BuildRequires:  mvn(io.netty:netty-all)
+BuildRequires:  mvn(io.netty:netty)
 BuildRequires:  mvn(junit:junit)
 BuildRequires:  mvn(org.apache.felix:maven-bundle-plugin)
 BuildRequires:  mvn(org.codehaus.mojo:build-helper-maven-plugin)
