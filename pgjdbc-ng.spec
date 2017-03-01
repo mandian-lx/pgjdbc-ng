@@ -69,7 +69,8 @@ find . -name "*.class" -delete
 %mvn_file :%{name} %{name}-%{version} %{name}
 
 %build
-%mvn_build
+# Tests require connection to localhost/127.0.0.1:5432
+%mvn_build -f
 
 %install
 %mvn_install
